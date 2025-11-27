@@ -2,15 +2,17 @@ export interface Product {
   id: string;
   name: string;
   description: string;
-  image: string;
-  price: number;
+  category: string;
+  images: string[];
   isFeatured: boolean;
   showInGeneEditing: boolean;
   showInReagent: boolean;
-  variants?: {
-    size: string;
-    price: number;
+  variants: {
+    id: string;
     sku: string;
+    label: string;
+    price: number;
+    stockStatus: string;
   }[];
 }
 

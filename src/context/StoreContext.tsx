@@ -39,6 +39,8 @@ export type Product = {
 export type Service = {
   id: string;
   title: string;
+  description: string;
+  image: string;
   showInServiceSection: boolean;
 };
 
@@ -77,6 +79,8 @@ const initialServices: Service[] = [
   {
     id: '1',
     title: 'Example Service',
+    description: 'This is an example service description.',
+    image: '/next.svg',
     showInServiceSection: true,
   },
 ];

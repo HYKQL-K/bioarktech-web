@@ -11,7 +11,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const selectedVariant = product.variants && product.variants.length > 0 ? product.variants[selectedVariantIndex] : null;
-  const selectedImage = product.images && product.images.length > 0 ? product.images[selectedImageIndex] : product.image || '';
+  const selectedImage = product.images && product.images.length > 0 ? product.images[selectedImageIndex] : '';
 
   const handleVariantChange = (index: number) => {
     setSelectedVariantIndex(index);
@@ -29,7 +29,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
     });
     // Add to cart logic would go here
     if (selectedVariant) {
-      alert(`Added ${product.name} (${selectedVariant.size}) to cart!`);
+      alert(`Added ${product.name} (${selectedVariant.label}) to cart!`);
     } else {
       alert(`Added ${product.name} to cart!`);
     }
@@ -99,7 +99,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                       : 'border-gray-300 hover:border-blue-300'
                     }`}
                   >
-                    {variant.size}
+                    {variant.label}
                   </button>
                 ))}
               </div>
@@ -110,7 +110,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
           <div className="mb-6 p-4 bg-gray-50 rounded-lg">
             <div className="flex justify-between items-center mb-2">
               <span className="text-gray-600">Price:</span>
-              <span className="text-2xl font-bold">${(selectedVariant ? selectedVariant.price : product.price).toFixed(2)}</span>
+              <span className="text-2xl font-bold">${(selectedVariant ? selectedVariant.price : product.variants[0].price).toFixed(2)}</span>
             </div>
             {selectedVariant && (
               <div className="flex justify-between items-center">

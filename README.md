@@ -104,6 +104,39 @@ npm install
 npm run dev
 ```
 
+访问 http://localhost:3000 查看网站
+
+## How to Deploy
+
+### Deploy to Vercel
+
+1. **Connect GitHub Repository**
+   - Go to [Vercel](https://vercel.com/)
+   - Sign in with your GitHub account
+   - Click "New Project"
+   - Select your repository from the list
+   - Click "Import"
+
+2. **Configure Project**
+   - Vercel will automatically detect the Next.js configuration
+   - No additional configuration is needed for this project
+   - Click "Deploy"
+
+3. **Access Live Preview**
+   - Once deployment is complete, Vercel will provide a live preview URL (e.g., `https://bioarktech-cms.vercel.app`)
+   - You can access your website using this URL
+
+### Deploy Button
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/your-repository-name)
+
+Replace `https://github.com/your-username/your-repository-name` with the actual URL of your GitHub repository.
+
+### 启动开发服务器
+```bash
+npm run dev
+```
+
 ### 构建生产版本
 ```bash
 npm run build

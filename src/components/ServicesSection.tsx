@@ -34,7 +34,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
               </div>
               
               <div className="flex-grow">
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">{service.name}</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">{service.title}</h3>
                 <p className="text-gray-600 text-sm line-clamp-3">
                   {service.description}
                 </p>
