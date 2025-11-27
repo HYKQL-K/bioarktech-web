@@ -1,0 +1,111 @@
+import { Product, Service } from '@/types';
+
+export const products: Product[] = [
+  {
+    id: '1',
+    name: 'CRISPR-Cas9 Kit',
+    description: 'Advanced gene editing tool for precise DNA modifications',
+    image: 'https://via.placeholder.com/300',
+    price: 199.99,
+    isFeatured: true,
+    showInGeneEditing: true,
+    showInReagent: false,
+  },
+  {
+    id: '2',
+    name: 'sgRNA Library',
+    description: 'Comprehensive library of single-guide RNAs for genome-wide screening',
+    image: 'https://via.placeholder.com/300',
+    price: 499.99,
+    isFeatured: true,
+    showInGeneEditing: true,
+    showInReagent: false,
+  },
+  {
+    id: '3',
+    name: 'Cas9 Nickase',
+    description: 'Nickase variant for precise single-strand DNA cleavage',
+    image: 'https://via.placeholder.com/300',
+    price: 249.99,
+    isFeatured: false,
+    showInGeneEditing: false,
+    showInReagent: false,
+  },
+  {
+    id: '4',
+    name: 'Base Editor',
+    description: 'Enables precise base pair changes without double-strand breaks',
+    image: 'https://via.placeholder.com/300',
+    price: 399.99,
+    isFeatured: true,
+    showInGeneEditing: true,
+    showInReagent: false,
+  },
+  {
+    id: '5',
+    name: 'Prime Editor',
+    description: 'Next-generation gene editing technology for precise insertions, deletions, and substitutions',
+    image: 'https://via.placeholder.com/300',
+    price: 599.99,
+    isFeatured: true,
+    showInGeneEditing: false,
+    showInReagent: false,
+  },
+  {
+    id: '6',
+    name: 'Gene Knockout Kit',
+    description: 'Complete kit for efficient gene knockout experiments',
+    image: 'https://via.placeholder.com/300',
+    price: 299.99,
+    isFeatured: false,
+    showInGeneEditing: true,
+    showInReagent: false,
+  },
+  {
+    id: '7',
+    name: 'BioArkLipo® In Vitro Transfection Kit',
+    description: 'High-efficiency transfection kit for in vitro gene delivery',
+    image: 'https://via.placeholder.com/300',
+    price: 35.00,
+    isFeatured: true,
+    showInGeneEditing: true,
+    showInReagent: false,
+    variants: [
+      { size: '0.1 mL', price: 35.00, sku: 'BAL100468' },
+      { size: '0.5 mL', price: 120.00, sku: 'BAL100469' },
+      { size: '1.0 mL', price: 320.00, sku: 'BAL100470' },
+      { size: '6 x 1.0 mL', price: 1600.00, sku: 'BAL100471' }
+    ]
+  },
+];
+
+export const services: Service[] = [
+  {
+    id: '1',
+    title: 'Custom sgRNA Design',
+    description: 'Tailored single-guide RNA design for your specific research needs',
+    image: 'https://via.placeholder.com/300',
+    showInServiceSection: true,
+  },
+  {
+    id: '2',
+    title: 'Gene Editing Consultation',
+    description: 'Expert consultation on experimental design and troubleshooting',
+    image: 'https://via.placeholder.com/300',
+    showInServiceSection: true,
+  },
+  {
+    id: '3',
+    title: 'CRISPR Screening Service',
+    description: 'High-throughput genome-wide screening using CRISPR technology',
+    image: 'https://via.placeholder.com/300',
+    showInServiceSection: false,
+  },
+  {
+    id: '4',
+    title: 'Vector Construction',
+    description: 'Custom vector construction for gene delivery and expression',
+    image: 'https://via.placeholder.com/300',
+    showInServiceSection: true,
+  },
+];

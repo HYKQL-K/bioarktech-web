@@ -1,65 +1,164 @@
-import Image from "next/image";
+'use client';
+
+import Navbar from '@/components/Navbar';
+import CustomFeaturedCarousel from '@/components/CustomFeaturedCarousel';
+import GeneEditingSection from '@/components/GeneEditingSection';
+import ServicesSection from '@/components/ServicesSection';
+import { useStore } from '../context/StoreContext';
 
 export default function Home() {
+  const { products, services } = useStore();
+  const featuredProducts = products.filter(product => product.isFeatured);
+  const geneEditingProducts = products.filter(product => product.showInGeneEditing);
+  const serviceSectionServices = services.filter(service => service.showInServiceSection);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <section className="relative pt-24 pb-20 px-4">
+        {/* Background Gradient */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-600" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="max-w-2xl">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Genetic Innovation</h1>
+            <p className="text-2xl text-white mb-8">Innovative seed on board</p>
+            <p className="text-white/80 mb-8 max-w-xl">
+              Advanced delivery solutions for genome editing, accelerating research from discovery to therapy
+            </p>
+            <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg">
+              Explore Now
+            </button>
+          </div>
+          
+          {/* Stats Row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+              <div className="text-3xl font-bold text-white">4.9/5</div>
+              <div className="text-white/80 mt-2">Customer Rating</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+              <div className="text-3xl font-bold text-white">300+</div>
+              <div className="text-white/80 mt-2">Research Partners</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+              <div className="text-3xl font-bold text-white">99%</div>
+              <div className="text-white/80 mt-2">Success Rate</div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+      
+      {/* Featured Products Section */}
+      <section id="products" className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Featured Products</h2>
+          <CustomFeaturedCarousel products={featuredProducts} />
         </div>
-      </main>
+      </section>
+      
+      {/* Gene Editing Section */}
+      <GeneEditingSection products={geneEditingProducts} />
+      
+      {/* Services Section */}
+      <ServicesSection services={serviceSectionServices} />
+      
+      {/* About Section */}
+      <section id="about" className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">About BioArk Tech</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              BioArk Tech is a leading provider of innovative solutions for genetic research and gene editing. Our mission is to accelerate scientific discovery and advance the field of biotechnology through cutting-edge products and services.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-lg p-6 text-center">
+              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="text-blue-600">
+                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">Innovation</h3>
+              <p className="text-gray-600 text-sm">
+                We are committed to developing and delivering the most advanced products and services for genetic research.
+              </p>
+            </div>
+            
+            <div className="bg-gray-50 rounded-lg p-6 text-center">
+              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="text-blue-600">
+                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">Quality</h3>
+              <p className="text-gray-600 text-sm">
+                We maintain the highest standards of quality in all our products and services to ensure reliable results.
+              </p>
+            </div>
+            
+            <div className="bg-gray-50 rounded-lg p-6 text-center">
+              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="text-blue-600">
+                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">Support</h3>
+              <p className="text-gray-600 text-sm">
+                Our team of experts is dedicated to providing exceptional support to our customers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">BioArkTech</h3>
+              <p className="text-gray-400">Innovative solutions for genetic research</p>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Products</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>Gene Editing</li>
+                <li>Reagents</li>
+                <li>Kits</li>
+                <li>Equipment</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Services</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>Custom Editing</li>
+                <li>Analysis</li>
+                <li>Consulting</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Contact</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>info@bioarktech.com</li>
+                <li>+1 (555) 123-4567</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; {new Date().getFullYear()} BioArkTech. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
