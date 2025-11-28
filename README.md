@@ -128,9 +128,7 @@ npm run dev
 
 ### Deploy Button
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/your-repository-name)
-
-Replace `https://github.com/your-username/your-repository-name` with the actual URL of your GitHub repository.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/HYKQL-K/bioarktech-web)
 
 ### 启动开发服务器
 ```bash
